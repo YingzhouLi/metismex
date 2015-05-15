@@ -31,13 +31,12 @@ end
 copyfile([src_path '*'],build_src_path);
 
 mex_files = dir([build_src_path '*.c']);
-length(mex_files)
 
 c = computer;
 switch c
     case 'GLNXA64'
         for i=1:length(mex_files)
-            eval(['mex -v -largeArrayDims -lmetis CFLAGS="\$CFLAGS -std=c99" -I' build_src_path ' '...
+            eval(['mex -largeArrayDims -lmetis CFLAGS="\$CFLAGS -std=c99" -I' build_src_path ' '...
                   build_src_path mex_files(i).name ' -outdir ' build_mex_path]);
         end
 end
