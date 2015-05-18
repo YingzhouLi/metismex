@@ -39,6 +39,13 @@ switch c
             eval(['mex -largeArrayDims -lmetis CFLAGS="\$CFLAGS -std=c99" -I' build_src_path ' '...
                   build_src_path mex_files(i).name ' -outdir ' build_mex_path]);
         end
+    case 'MACI64'
+        path_to_metis = '/usr/local/Cellar/metis/5.1.0/';
+        for i=1:length(mex_files)
+            eval(['mex -largeArrayDims -lmetis -Dchar16_t=uint16_T CFLAGS="\$CFLAGS -std=c99" -I'...
+                  path_to_metis 'include -L' path_to_metis 'lib -I' build_src_path ' '...
+                  build_src_path mex_files(i).name ' -outdir ' build_mex_path]);
+        end
 end
 
 % make install
