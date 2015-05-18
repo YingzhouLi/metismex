@@ -43,11 +43,12 @@ void mexFunction (int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
     idx_t nn = (idx_t) mxGetScalar(nn_in);
     idx_t *eptr; GetIdxArray(eptr_in,&eptr);
     idx_t *eind; GetIdxArray(eind_in,&eind);
-    idx_t *xadj;
-    idx_t *adjncy;
+    idx_t numflag = 0;
+    idx_t *xadj = NULL;
+    idx_t *adjncy = NULL;
     
     // Metis main function
-    int info = METIS_MeshToNodal( &ne, &nn, eptr, eind, 0,
+    int info = METIS_MeshToNodal( &ne, &nn, eptr, eind, &numflag,
                     &xadj, &adjncy);
     CheckReturn(info, FUNC_NAME);
     

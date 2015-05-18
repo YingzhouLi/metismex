@@ -45,22 +45,22 @@ void mexFunction (int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
     idx_t *eptr; GetIdxArray(eptr_in,&eptr);
     idx_t *eind; GetIdxArray(eind_in,&eind);
     idx_t ncommon = (idx_t) mxGetScalar(ncommon_in);
-    idx_t *xadj;
-    idx_t *adjncy;
+    idx_t numflag = 0;
+    idx_t *xadj = NULL;
+    idx_t *adjncy = NULL;
     
     // Metis main function
-    int info = METIS_MeshToDual( &ne, &nn, eptr, eind, &ncommon, 0,
+    int info = METIS_MeshToDual( &ne, &nn, eptr, eind, &ncommon, &numflag,
                     &xadj, &adjncy);
     CheckReturn(info, FUNC_NAME);
     
     // Output
-    idx_t nvtxs = (idx_t) (sizeof(xadj)/sizeof(idx_t));
-    xadj_out = mxCreateDoubleMatrix(1,nvtxs+1,mxREAL);
-    mxSetData(xadj_out,mxMalloc(sizeof(double)*(nvtxs+1)));
+    xadj_out = mxCreateDoubleMatrix(1,ne+1,mxREAL);
+    mxSetData(xadj_out,mxMalloc(sizeof(double)*(ne+1)));
     double *xadj_out_pr = mxGetPr(xadj_out);
-    for(idx_t i=0; i<nvtxs+1; i++)
+    for(idx_t i=0; i<ne+1; i++)
         xadj_out_pr[i] = (double) xadj[i];
-    idx_t n = (idx_t) xadj[nvtxs];
+    idx_t n = (idx_t) xadj[ne+1];
     adjncy_out = mxCreateDoubleMatrix(1,n,mxREAL);
     mxSetData(adjncy_out,mxMalloc(sizeof(double)*n));
     double *adjncy_out_pr = mxGetPr(adjncy_out);

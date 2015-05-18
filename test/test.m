@@ -13,3 +13,6 @@ eptr = [1 4 7 10 14 17];
 eind = [1 2 3 2 3 4 1 3 5 2 3 4 5 4 6 7];
 [epartMeshDual,npartMeshDual] = METIS_PartMeshDual(NE,NN,eptr,eind,[],[],1,2,[],[]);
 [epartMeshNodal,npartMeshNodal] = METIS_PartMeshNodal(NE,NN,eptr,eind,[],[],2,[],[]);
+
+[xadjM2D,adjncyM2D] = METIS_MeshToDual(NE,NN,eptr,eind,1);
+[xadjM2N,adjncyM2N] = METIS_MeshToNodal(NE,NN,eptr,eind);
