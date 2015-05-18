@@ -43,7 +43,7 @@ void mexFunction (int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
     if (nrhs != 11)
         mexErrMsgIdAndTxt(FUNC_NAME, "Wrong input.");
     if (nlhs != 2)
-        mexErrMsgIdAndTxt(FUNC_NAME, "Wrong input.");
+        mexErrMsgIdAndTxt(FUNC_NAME, "Wrong output.");
     
     // Input and output variables
     idx_t nvtxs = (idx_t) mxGetScalar(nvtxs_in);
