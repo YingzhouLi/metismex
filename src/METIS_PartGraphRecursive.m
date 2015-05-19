@@ -2,11 +2,16 @@ function [part,objval] = METIS_PartGraphRecursive(nvtxs,ncon,...
                                     xadj,adjncy,vwgt,vsize,adjwgt,...
                                     nparts,tpwgts,ubvec,options)
 
-xadj = xadj-1;
-adjncy = adjncy-1;
-[objval,part] = METIS_PartGraphRecursive_mex(nvtxs,ncon,...
-                            xadj,adjncy,vwgt,vsize,adjwgt,...
-                            nparts,tpwgts,ubvec,options);
-part = part+1;
+if(nparts>1)
+    xadj = xadj-1;
+    adjncy = adjncy-1;
+    [objval,part] = METIS_PartGraphRecursive_mex(nvtxs,ncon,...
+                                xadj,adjncy,vwgt,vsize,adjwgt,...
+                                nparts,tpwgts,ubvec,options);
+    part = part+1;
+else
+    objval = 0;
+    part = ones(nvtxs,1);
+end
 
 end

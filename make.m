@@ -50,4 +50,14 @@ end
 
 % make install
 
+if(installflag == 1)
+    [userpath 'metismex']
+    if(~exist([userpath 'metismex'], 'dir'))
+        [userpath 'metismex']
+        mkdir([userpath 'metismex']);
+    end
+    copyfile([build_path '*'],[userpath 'metismex']);
+    return;
+end
+
 end
