@@ -55,6 +55,7 @@ OSX 10.10 with Matlab installed.
   >> test
   >> test_sparse
   ```
+
 ### Install on Ubuntu
 ---------
 
