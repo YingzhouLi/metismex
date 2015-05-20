@@ -87,7 +87,20 @@ OSX 10.10 with Matlab installed.
   cd metismex
   matlab -nojvm -r "make(1);quit"
   ```
-  
+
+### Uninstall on Ubuntu and Mac
+---------
+
+1. Download MetisMex.
+  ```
+  git clone https://github.com/YingzhouLi/metismex.git
+  cd metismex
+  ```  
+2. Uninstall MetisMex
+  ```
+  matlab -nojvm -r "make(-1);quit"
+  ```
+
 ### Acknowledgments
 -------
 Many thanks to [David Gleich](https://www.cs.purdue.edu/homes/dgleich/)
