@@ -1,17 +1,51 @@
 function make(installflag)
+% MAKE  Make file for MetisMex
+%   MAKE, MAKE(0) produce the mex files for METIS under 'build'
+%   folder.
+%
+%   MAKE(1) produces the mex files for METIS under 'build' folder
+%   and install MetisMex under the userpath/methismex. The path to
+%   installed MetisMex will be added in 'startup.m' such that the
+%   MetisMex will be included automatically..
+%
+%   MAKE(-1) uninstall MetisMex and delete all the files under
+%   'build' folder.
+%
+
+%   Copyright (c) 2015 Yingzhou Li, Stanford University
 
 if( nargin == 0 )
     installflag = 0;
 end
 
-src_path = './src/';
-build_path = './build/';
-build_src_path = [build_path 'src/'];
-build_mex_path = [build_path 'mex/'];
+src_path = ['src' filesep];
+build_path = ['build' filesep];
+build_src_path = [build_path 'src' filesep];
+build_mex_path = [build_path 'mex' filesep];
+install_path = strsplit(userpath,pathsep);
+matlab_startup_file = [install_path{1} filesep 'startup.m'];
+install_path = [install_path{1} filesep 'metismex' filesep];
 
 % make clear, installflag<0
 if(installflag < 0)
-    rmdir(build_path,'s');
+    if(exist(build_path, 'dir'))
+        rmdir(build_path,'s');
+    end
+    if(exist(install_path, 'dir'))
+        rmpath([install_path 'src' filesep]);
+        rmpath([install_path 'mex' filesep]);
+        rmdir(install_path,'s');
+    end
+    if(exist(matlab_startup_file, 'file'))
+        startup_path_data = importdata(matlab_startup_file);
+        fid = fopen(matlab_startup_file, 'w+');
+        for i=1:length(startup_path_data)
+            if(~strcmp(startup_path_data{i},['run ' install_path 'METIS_startup.m']))
+                fprintf(fid,'%s\n',startup_path_data{i});
+            end
+        end
+        fclose(fid);
+    end
     return;
 end
 
@@ -51,12 +85,15 @@ end
 % make install
 
 if(installflag == 1)
-    [userpath 'metismex']
-    if(~exist([userpath 'metismex'], 'dir'))
-        [userpath 'metismex']
-        mkdir([userpath 'metismex']);
+    if(~exist(install_path, 'dir'))
+        mkdir(install_path);
     end
-    copyfile([build_path '*'],[userpath 'metismex']);
+    copyfile('METIS_startup.m',install_path);
+    copyfile([build_path '*'],install_path);
+    fid = fopen(matlab_startup_file, 'at');
+    fprintf(fid, '%s\n', ['run ' install_path 'METIS_startup.m']);
+    fclose(fid);
+    run([install_path 'METIS_startup.m']);
     return;
 end
 
