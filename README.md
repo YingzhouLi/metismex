@@ -92,11 +92,13 @@ OSX 10.10 with Matlab installed.
 ---------
 
 1. Download MetisMex.
+
   ```
   git clone https://github.com/YingzhouLi/metismex.git
   cd metismex
   ```  
 2. Uninstall MetisMex
+
   ```
   matlab -nojvm -r "make(-1);quit"
   ```
