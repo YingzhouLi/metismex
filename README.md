@@ -3,7 +3,8 @@ MetisMex
 
 Warning: The basic routines of metis work now. Further help documents will be added in the future.
 
-This code works with the latest stable version of Metis (5.1.0, 2013-03-30).
+This code works with the latest stable version of Metis(http://glaros.dtc.umn.edu/gkhome/metis/metis/overview)
+(5.1.0, 2013-03-30). And the source files are included under external folder.
 
 The following instructions worked on Ubuntu (14.04 LTS) and
 OSX 10.10 with Matlab installed.
@@ -11,20 +12,34 @@ OSX 10.10 with Matlab installed.
 ### Compile on Ubuntu
 ---------
 
-1. Install the latest version of 
-  [metis](http://glaros.dtc.umn.edu/gkhome/metis/metis/overview).
-  ```
-  sudo apt-get install libmetis-dev
-  ```
-
-2. Download and compile MetisMex.
+1. Download MetisMex
   ```
   git clone https://github.com/YingzhouLi/metismex.git
   cd metismex
+  ```
+
+2. Install the latest version of 
+  [metis](http://glaros.dtc.umn.edu/gkhome/metis/metis/overview).
+
+  a. Superuser or Root
+  ```
+  sudo apt-get install libmetis-dev
+  ```
+  
+  b. User
+  ```
+  cd external/metis
+  make config
+  make
+  cd ../..
+  ```
+
+3. Compile MetisMex.
+  ```
   matlab -nojvm -r "make;quit"
   ```
 
-3. Test MetisMex
+4. Test MetisMex
   ```
   cd test
   matlab &
@@ -35,20 +50,34 @@ OSX 10.10 with Matlab installed.
 ### Compile on Mac
 ---------
 
-1. Install the latest version of 
-  [metis](http://glaros.dtc.umn.edu/gkhome/metis/metis/overview).
-  ```
-  brew install metis
-  ```
-
-2. Download and compile MetisMex.
+1. Download MetisMex
   ```
   git clone https://github.com/YingzhouLi/metismex.git
   cd metismex
+  ```
+
+2. Install the latest version of 
+  [metis](http://glaros.dtc.umn.edu/gkhome/metis/metis/overview).
+
+  a. Superuser or Root
+  ```
+  brew install metis
+  ```
+  
+  b. User
+  ```
+  cd external/metis
+  make config
+  make
+  cd ../..
+  ```
+  
+3. Compile MetisMex.
+  ```
   matlab -nojvm -r "make;quit"
   ```
 
-3. Test MetisMex
+4. Test MetisMex
   ```
   cd test
   matlab &
@@ -59,29 +88,59 @@ OSX 10.10 with Matlab installed.
 ### Install on Ubuntu
 ---------
 
-1. Install the latest version of 
-  [metis](http://glaros.dtc.umn.edu/gkhome/metis/metis/overview).
-  ```
-  sudo apt-get install libmetis-dev
-  ```
-
-2. Download and compile MetisMex.
+1. Download MetisMex
   ```
   git clone https://github.com/YingzhouLi/metismex.git
   cd metismex
+  ```
+
+2. Install the latest version of 
+  [metis](http://glaros.dtc.umn.edu/gkhome/metis/metis/overview).
+
+  a. Superuser or Root
+  ```
+  sudo apt-get install libmetis-dev
+  ```
+  
+  b. User
+  ```
+  cd external/metis
+  make config
+  make
+  cd ../..
+  ```
+  
+3. Install MetisMex.
+  ```
   matlab -nojvm -r "make(1);quit"
   ```
 
 ### Install on Mac
 ---------
 
-1. Install the latest version of 
+1. Download MetisMex
+  ```
+  git clone https://github.com/YingzhouLi/metismex.git
+  cd metismex
+  ```
+
+2. Install the latest version of 
   [metis](http://glaros.dtc.umn.edu/gkhome/metis/metis/overview).
+
+  a. Superuser or Root
   ```
   brew install metis
   ```
+  
+  b. User
+  ```
+  cd external/metis
+  make config
+  make
+  cd ../..
+  ```
 
-2. Download and compile MetisMex.
+3. Install MetisMex.
   ```
   git clone https://github.com/YingzhouLi/metismex.git
   cd metismex
@@ -97,6 +156,7 @@ OSX 10.10 with Matlab installed.
   git clone https://github.com/YingzhouLi/metismex.git
   cd metismex
   ```  
+
 2. Uninstall MetisMex
 
   ```
