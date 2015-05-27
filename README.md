@@ -3,7 +3,7 @@ MetisMex
 
 Warning: The basic routines of metis work now. Further help documents will be added in the future.
 
-This code works with the latest stable version of Metis(http://glaros.dtc.umn.edu/gkhome/metis/metis/overview)
+This code works with the latest stable version of [Metis](http://glaros.dtc.umn.edu/gkhome/metis/metis/overview)
 (5.1.0, 2013-03-30). And the source files are included under external folder.
 
 The following instructions worked on Ubuntu (14.04 LTS) and
