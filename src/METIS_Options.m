@@ -161,6 +161,8 @@ function METIS_OPTIONS
 %
 %   This introduction of the option structure is copied from the manual of METIS.
 %
+%   See also METIS_PARAMETERS.
+%
 %   References
 %   [1] METIS, A Software Package for Partitioning Unstructured Graphs,
 %       Partitioning Meshes, and Computing Fill-Reducing Orderings of Sparse

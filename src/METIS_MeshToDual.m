@@ -1,17 +1,13 @@
 function [xadj,adjncy] = METIS_MeshToDual(ne,nn,eptr,eind,ncommon)
-% METIS_MESHTODUAL  Matlab interface to the mex file of
-% METIS_MeshToDual.
+% METIS_MESHTODUAL  Matlab interface to the mex file of METIS_MeshToDual.
 %
-%   MAKE, MAKE(0) produce the mex files for METIS under 'build'
-%   folder.
+%   [xadj,adjncy] = METIS_MESHTODUAL(ne,nn,eptr,eind,ncommon)
 %
-%   MAKE(1) produces the mex files for METIS under 'build' folder
-%   and install MetisMex under the userpath/methismex. The path to
-%   installed MetisMex will be added in 'startup.m' such that the
-%   MetisMex will be included automatically..
+%   This function is used to generate the dual graph of a mesh.
 %
-%   MAKE(-1) uninstall MetisMex and delete all the files under
-%   'build' folder.
+%   Parameters are explained in METIS_Parameters.
+%
+%   See also METIS_PARAMETERS.
 
 %   Copyright (c) 2015 Yingzhou Li, Stanford University
 

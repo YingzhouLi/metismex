@@ -96,6 +96,8 @@ function METIS_Parameters
 %
 %   This introduction of the parameters is copied from the manual of METIS.
 %
+%   See also METIS_OPTIONS.
+%
 %   References
 %   [1] METIS, A Software Package for Partitioning Unstructured Graphs,
 %       Partitioning Meshes, and Computing Fill-Reducing Orderings of Sparse

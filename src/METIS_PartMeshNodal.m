@@ -1,18 +1,18 @@
 function [epart,npart,objval] = METIS_PartMeshNodal(ne,nn,eptr,eind,...
                                     vwgt,vsize,nparts,...
                                     tpwgts,options)
-% METIS_PARTMESHNODAL  Make file for MetisMex
-%   MAKE, MAKE(0) produce the mex files for METIS under 'build'
-%   folder.
+% METIS_PARTMESHNODAL  Matlab interface to the mex file of METIS_PartMeshNodal.
 %
-%   MAKE(1) produces the mex files for METIS under 'build' folder
-%   and install MetisMex under the userpath/methismex. The path to
-%   installed MetisMex will be added in 'startup.m' such that the
-%   MetisMex will be included automatically..
+%   [epart,npart,objval] = METIS_PartMeshNodal(ne,nn,eptr,eind,vwgt,vsize,nparts,
+%                                              tpwgts,options)
 %
-%   MAKE(-1) uninstall MetisMex and delete all the files under
-%   'build' folder.
+%   This function is used to partition a mesh into k parts based on a
+%   partitioning of the mesh's nodal graph.
 %
+%   Parameters are explained in METIS_Parameters and options are explained in
+%   METIS_Options.
+%
+%   See also METIS_PARAMETERS, METIS_OPTIONS.
 
 %   Copyright (c) 2015 Yingzhou Li, Stanford University
 
