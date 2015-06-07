@@ -1,6 +1,7 @@
 MetisMex
 ========
 
+MetisMex is a Matlab interface to METIS.
 This code works with the latest stable version of [Metis](http://glaros.dtc.umn.edu/gkhome/metis/metis/overview)
 (5.1.0, 2013-03-30). And the source files are included under external folder.
 
