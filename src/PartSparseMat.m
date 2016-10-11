@@ -19,14 +19,11 @@ if nargin < 3
     flag = 1;
 end
 
-nvtxs = size(A,1);
-[i,j,~] = find(A);
-xadj = [1;cumsum(accumarray(j, 1))+1];
-adjncy = i;
+g = METIS_Graph(A);
 if flag
-    part = METIS_PartGraphKway(nvtxs,1,xadj,adjncy,[],[],[],nparts,[],[],[]);
+    part = METIS_PartGraphKway(g.nvtxs,1,g.xadj,g.adjncy,[],[],[],nparts,[],[],[]);
 else
-    part = METIS_PartGraphRecursive(nvtxs,1,xadj,adjncy,[],[],[],nparts,...
+    part = METIS_PartGraphRecursive(g.nvtxs,1,g.xadj,g.adjncy,[],[],[],nparts,...
                                     [],[],[]);
 end
 

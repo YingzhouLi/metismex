@@ -1,9 +1,9 @@
 addpath('../build/src','../build/mex');
 
-N = 1000;
+N = 500;
 dim = 5;
 h = 2;
-cut = 0.5;
+cut = 0.8;
 
 data = randn(N,dim);
 A = exp(-pdist2(data,data).^2/h^2);

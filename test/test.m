@@ -7,17 +7,11 @@ adjncy = [ 2  6  1  3  7  2  4  8  3  5  9  4 10  1  7 11  2  6  8 12  3 ...
 partGraphRecursive = METIS_PartGraphRecursive(N,1,xadj,adjncy,[],[],[],2,[],[],[]);
 partGraphKway = METIS_PartGraphKway(N,1,xadj,adjncy,[],[],[],3,[],[],[]);
 
-A = zeros(15);
-A(1:5,1:5) = 4*eye(5)-diag(ones(4,1),-1)-diag(ones(4,1),1);
-A(6:10,6:10) = 4*eye(5)-diag(ones(4,1),-1)-diag(ones(4,1),1);
-A(11:15,11:15) = 4*eye(5)-diag(ones(4,1),-1)-diag(ones(4,1),1);
-A(1:5,6:10) = -eye(5);
-A(6:10,1:5) = -eye(5);
-A(6:10,11:15) = -eye(5);
-A(11:15,6:10) = -eye(5);
+n = 5;
+A = 2*eye(n)-diag(ones(n-1,1),-1)-diag(ones(n-1,1),1);
+A = kron(kron(A,eye(n)),eye(n))+kron(kron(eye(n),A),eye(n))+kron(kron(eye(n),eye(n)),A);
 
-[perm,iperm] = METIS_NodeND(N,xadj,adjncy,[],[]);
-
+[perm,iperm] = ReorderSparseMat(A);
 Aperm = A(perm,perm);
 
 NE = 5;
