@@ -28,8 +28,7 @@
            list of a vertex should not contain the vertex itself.
     \param vwgt is an array of size nvtxs storing the weight of each 
            vertex. If vwgt is NULL, then the vertices are considered 
-           to have unit weight.
-    \param numflag is either 0 or 1 indicating that the numbering of 
+           to have unit weight.  \param numflag is either 0 or 1 indicating that the numbering of 
            the vertices starts from 0 or 1, respectively.
     \param options is an array of size METIS_NOPTIONS used to pass 
            various options impacting the of the algorithm. A NULL
