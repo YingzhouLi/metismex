@@ -13,11 +13,10 @@ function [lidx,ridx,sepidx] = METIS_SepPartition(nvtxs, ...
 %   See also METIS_PARAMETERS, METIS_OPTIONS.
 
 %   Copyright (c) 2015 Yingzhou Li, Stanford University
-singleidx = [];
 if nargin < 3
     degree = sum((spones(nvtxs)-speye(size(nvtxs))) > 0);
     singleidx = find(degree == 0);
-    idx = degree > 0;
+    idx = find(degree > 0);
     g = METIS_Graph(nvtxs(idx,idx));
     if nargin < 2
         options = [];
@@ -26,14 +25,18 @@ if nargin < 3
     end
     [lidx,ridx,sepidx] = METIS_SepPartition_mex(g.nvtxs, ...
         g.xadj-1,g.adjncy-1,[],options);
+    lidx = idx(lidx+1);
+    ridx = idx(ridx+1);
+    sepidx = [idx(sepidx+1) singleidx];
 else
     xadj = xadj-1;
     adjncy = adjncy-1;
     [lidx,ridx,sepidx] = METIS_SepPartition_mex(nvtxs, ...
         xadj,adjncy,vwgt,options);
+    lidx = lidx+1;
+    ridx = ridx+1;
+    sepidx = sepidx+1;
 end
-lidx = lidx+1;
-ridx = ridx+1;
-sepidx = [sepidx+1 singleidx];
+
 
 end
