@@ -50,7 +50,7 @@ void mexFunction (int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
     idx_t *sepidx;
     idx_t *lgraphidx;
     idx_t *rgraphidx;
-    
+
     // Metis main function
     idx_t i, nnvtxs=0;
     idx_t ptlgraph, ptrgraph, ptsep;
@@ -87,7 +87,7 @@ void mexFunction (int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
             ctrl->compress = 0;
         }
     }
-
+    
     // compress the graph
     if (ctrl->compress)
         ctrl->compress = 0; 
