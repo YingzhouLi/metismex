@@ -19,7 +19,11 @@ if nargin < 3
     singleidx = find(degree == 0);
     idx = degree > 0;
     g = METIS_Graph(nvtxs(idx,idx));
-    options = xadj;
+    if nargin < 2
+        options = [];
+    else
+        options = xadj;
+    end
     [lidx,ridx,sepidx] = METIS_SepPartition_mex(g.nvtxs, ...
         g.xadj-1,g.adjncy-1,[],options);
 else
