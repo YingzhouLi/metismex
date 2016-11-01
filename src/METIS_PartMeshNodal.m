@@ -1,20 +1,21 @@
 function [epart,npart,objval] = METIS_PartMeshNodal(ne,nn,eptr,eind,...
                                     vwgt,vsize,nparts,...
                                     tpwgts,options)
-% METIS_PARTMESHNODAL  Matlab interface to the mex file of METIS_PartMeshNodal.
+% METIS_PARTMESHNODAL  Matlab interface to the mex file of
+%   METIS_PartMeshNodal.
 %
-%   [epart,npart,objval] = METIS_PartMeshNodal(ne,nn,eptr,eind,vwgt,vsize,nparts,
-%                                              tpwgts,options)
+%   [epart,npart,objval] = METIS_PartMeshNodal(ne,nn,eptr,eind,vwgt,vsize,
+%                                              nparts,tpwgts,options)
 %
 %   This function is used to partition a mesh into k parts based on a
 %   partitioning of the mesh's nodal graph.
 %
-%   Parameters are explained in METIS_Parameters and options are explained in
-%   METIS_Options.
+%   Parameters are explained in METIS_Parameters and options are explained
+%   in METIS_Options.
 %
 %   See also METIS_PARAMETERS, METIS_OPTIONS.
 
-%   Copyright (c) 2015 Yingzhou Li, Stanford University
+%   Copyright (c) 2015-2016 Yingzhou Li, Stanford University
 
 if(nparts>1)
     eptr = eptr-1;

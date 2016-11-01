@@ -11,7 +11,7 @@ function [perm,iperm] = ReorderSparseIdx(nvtxs,i,j)
 %
 %   See also METIS_PARAMETERS, METIS_NODEND.
 
-%   Copyright (c) 2015 Yingzhou Li, Stanford University
+%   Copyright (c) 2015-2016 Yingzhou Li, Stanford University
 
 xadj = [1;cumsum(accumarray(j, 1))+1];
 adjncy = i;

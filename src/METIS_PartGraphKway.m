@@ -1,16 +1,17 @@
 function [part,objval] = METIS_PartGraphKway(nvtxs,ncon,...
                                     xadj,adjncy,vwgt,vsize,adjwgt,...
                                     nparts,tpwgts,ubvec,options)
-% METIS_PARTGRAPHKWAY  Matlab interface to the mex file of METIS_PartGraphKway.
+% METIS_PARTGRAPHKWAY  Matlab interface to the mex file of
+%   METIS_PartGraphKway.
 %
-%   [part,objval] = METIS_PartGraphKway(nvtxs,ncon,xadj,adjncy,vwgt,vsize,adjwgt,
-%                                       nparts,tpwgts,ubvec,options)
+%   [part,objval] = METIS_PartGraphKway(nvtxs,ncon,xadj,adjncy,vwgt,vsize,
+%                                       adjwgt,nparts,tpwgts,ubvec,options)
 %
-%   This function is used to partition a graph into k parts using multilevel
-%   k-way partitioning.
+%   This function is used to partition a graph into k parts using
+%   multilevel k-way partitioning.
 %
-%   Parameters are explained in METIS_Parameters and options are explained in
-%   METIS_Options.
+%   Parameters are explained in METIS_Parameters and options are explained
+%   in METIS_Options.
 %
 %   See also METIS_PARAMETERS, METIS_OPTIONS.
 

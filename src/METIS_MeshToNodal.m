@@ -9,7 +9,7 @@ function [xadj,adjncy] = METIS_MeshToNodal(ne,nn,eptr,eind)
 %
 %   See also METIS_PARAMETERS.
 
-%   Copyright (c) 2015 Yingzhou Li, Stanford University
+%   Copyright (c) 2015-2016 Yingzhou Li, Stanford University
 
 eptr = eptr-1;
 eind = eind-1;

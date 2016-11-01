@@ -3,7 +3,7 @@
 *
 * Usage:
 *
-*****************************************************************************/
+***************************************************************************/
 
 #include <mex.h>
 #include <matrix.h>
@@ -28,10 +28,11 @@ typedef size_t mwSize;
 #define sepidx_out      (plhs[2])
          
 
-/****************************************************************************
+/**************************************************************************
 * mexFunction: gateway routine for MATLAB interface.
-*****************************************************************************/
-void mexFunction (int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
+***************************************************************************/
+void mexFunction
+(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
 {
     
     // Argument checking

@@ -1,9 +1,9 @@
 function METIS_startup()
 % METIS_STARTUP  Startup file for MetisMex
-%   MAKE adds paths of the MetisMex to Matlab.
+%   METIS_STARTUP() adds paths of the MetisMex to Matlab.
 %
 
-%   Copyright (c) 2015 Yingzhou Li, Stanford University
+%   Copyright (c) 2015-2016 Yingzhou Li, Stanford University
 
 file_path = mfilename('fullpath');
 tmp = strfind(file_path,'METIS_startup');

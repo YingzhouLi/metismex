@@ -10,7 +10,7 @@ function [perm,iperm] = ReorderSparseMat(A,options)
 %
 %   See also METIS_PARAMETERS, METIS_NODEND.
 
-%   Copyright (c) 2015 Yingzhou Li, Stanford University
+%   Copyright (c) 2015-2016 Yingzhou Li, Stanford University
 
 g = METIS_Graph(A);
 [perm,iperm] = METIS_NodeND(g.nvtxs,g.xadj,g.adjncy,[],options);

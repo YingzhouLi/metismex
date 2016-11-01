@@ -3,15 +3,15 @@ function [perm,iperm] = METIS_NodeND(nvtxs,xadj,adjncy,vwgt,options)
 %
 %   [perm,iperm] = METIS_NodeND(nvtxs,xadj,adjncy,vwgt,options)
 %
-%   This function computes fill reducing orderings of sparse matrices using the
-%   multilevel nested dissection algorithm.
+%   This function computes fill reducing orderings of sparse matrices using
+%   the multilevel nested dissection algorithm.
 %
-%   Parameters are explained in METIS_Parameters and options are explained in
-%   METIS_Options.
+%   Parameters are explained in METIS_Parameters and options are explained
+%   in METIS_Options.
 %
 %   See also METIS_PARAMETERS, METIS_OPTIONS.
 
-%   Copyright (c) 2015 Yingzhou Li, Stanford University
+%   Copyright (c) 2015-2016 Yingzhou Li, Stanford University
 
 xadj = xadj-1;
 adjncy = adjncy-1;

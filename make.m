@@ -12,7 +12,7 @@ function make(installflag)
 %   'build' folder.
 %
 
-%   Copyright (c) 2015 Yingzhou Li, Stanford University
+%   Copyright (c) 2015-2016 Yingzhou Li, Stanford University
 
 if( nargin == 0 )
     installflag = 0;

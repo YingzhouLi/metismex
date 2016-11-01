@@ -1,6 +1,7 @@
 function [lidx,ridx,sepidx] = METIS_SepPartition(nvtxs, ...
     xadj,adjncy,vwgt,options)
-% METIS_SEPPARTITION Matlab interface to the mex file of METIS_SepPartition.
+% METIS_SEPPARTITION Matlab interface to the mex file of
+%   METIS_SepPartition.
 %
 %   [lidx,ridx,sepidx] = METIS_SepPartition(nvtxs,xadj,adjncy,vwgt,options)
 %
@@ -12,7 +13,8 @@ function [lidx,ridx,sepidx] = METIS_SepPartition(nvtxs, ...
 %
 %   See also METIS_PARAMETERS, METIS_OPTIONS.
 
-%   Copyright (c) 2015 Yingzhou Li, Stanford University
+%   Copyright (c) 2015-2016 Yingzhou Li, Stanford University
+
 if nargin < 3
     degree = sum((spones(nvtxs)-speye(size(nvtxs))) > 0);
     singleidx = find(degree == 0);
@@ -37,6 +39,5 @@ else
     ridx = ridx+1;
     sepidx = sepidx+1;
 end
-
 
 end

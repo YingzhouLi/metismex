@@ -10,7 +10,7 @@ function [perm,iperm] = ReorderSparseCSC(nvtxs,xadj,adjncy)
 %
 %   See also METIS_PARAMETERS, METIS_NODEND.
 
-%   Copyright (c) 2015 Yingzhou Li, Stanford University
+%   Copyright (c) 2015-2016 Yingzhou Li, Stanford University
 
 [perm,iperm] = METIS_NodeND(nvtxs,xadj,adjncy,[],[]);
 
