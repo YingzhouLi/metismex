@@ -12,7 +12,11 @@ classdef METIS_Graph
             idx = find(i==j);
             i(idx) = [];
             j(idx) = [];
-            g.xadj = [1;cumsum(accumarray(j, 1))+1];
+            if isempty(j)
+                g.xadj = [];
+            else
+                g.xadj = [1;cumsum(accumarray(j, 1))+1];
+            end
             g.adjncy = i;
         end
         

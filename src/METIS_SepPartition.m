@@ -25,11 +25,17 @@ if nargin < 3
     else
         options = xadj;
     end
-    [lidx,ridx,sepidx] = METIS_SepPartition_mex(g.nvtxs, ...
-        g.xadj-1,g.adjncy-1,[],options);
-    lidx = idx(lidx+1);
-    ridx = idx(ridx+1);
-    sepidx = [idx(sepidx+1) singleidx];
+    if isempty(g.adjncy)
+        lidx = [];
+        ridx = [];
+        sepidx = [idx singleidx];
+    else
+        [lidx,ridx,sepidx] = METIS_SepPartition_mex(g.nvtxs, ...
+            g.xadj-1,g.adjncy-1,[],options);
+        lidx = idx(lidx+1);
+        ridx = idx(ridx+1);
+        sepidx = [idx(sepidx+1) singleidx];
+    end
 else
     xadj = xadj-1;
     adjncy = adjncy-1;
