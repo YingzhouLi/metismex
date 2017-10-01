@@ -40,7 +40,8 @@ if(installflag < 0)
         startup_path_data = importdata(matlab_startup_file);
         fid = fopen(matlab_startup_file, 'w+');
         for i=1:length(startup_path_data)
-            if(~strcmp(startup_path_data{i},['run ' install_path 'METIS_startup.m']))
+            if(~strcmp(startup_path_data{i}, ...
+                ['run ' install_path 'METIS_startup.m']))
                 fprintf(fid,'%s\n',startup_path_data{i});
             end
         end
