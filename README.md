@@ -166,9 +166,10 @@ OSX 10.10 with Matlab installed.
   
 ### BibTeX Export
 ```
-@software{yingzhou_li_2020_3746725,
-  author       = {Yingzhou Li},
-  title        = {YingzhouLi/metismex: Release for DOI},
+@software{li_yingzhou_2020_3746725,
+  author       = {Li, Yingzhou},
+  title        = {{M}etis{M}ex: A {MATLAB} toolbox of interfaces to the 
+                   {M}etis library}},
   month        = apr,
   year         = 2020,
   publisher    = {Zenodo},
