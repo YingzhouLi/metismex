@@ -163,6 +163,20 @@ OSX 10.10 with Matlab installed.
   ```
   matlab -nojvm -r "make(-1);quit"
   ```
+  
+### BibTeX Export
+```
+@software{yingzhou_li_2020_3746725,
+  author       = {Yingzhou Li},
+  title        = {YingzhouLi/metismex: Release for DOI},
+  month        = apr,
+  year         = 2020,
+  publisher    = {Zenodo},
+  version      = {v1.0},
+  doi          = {10.5281/zenodo.3746725},
+  url          = {https://doi.org/10.5281/zenodo.3746725}
+}
+```
 
 ### Acknowledgments
 -------
