@@ -59,6 +59,10 @@ typedef ptrdiff_t ssize_t;
 #endif
 
 #ifdef __MSC__
+#define USE_GKREGEX
+#define __thread __declspec(thread)
+#include <BaseTsd.h>
+typedef SSIZE_T ssize_t;
 /* MSC does not have rint() function */
 #if (_MSC_VER < 1800)
 #define rint(x) ((int)((x)+0.5))  
